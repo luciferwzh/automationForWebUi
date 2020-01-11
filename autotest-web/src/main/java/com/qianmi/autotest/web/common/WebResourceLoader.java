@@ -45,6 +45,10 @@ public class WebResourceLoader {
     public void printStartLog() {
         log.warn("~~~~~||~~~~~ Start test by browserName : {}", webAutotestProperties.getActiveBrowserName());
     }
+    @PostConstruct
+    public void setDriverProperty() {
+        System.setProperty("webdriver.chrome.driver",Thread.currentThread().getContextClassLoader().getResource("chromedriver.exe").getPath());
+    }
 
     /**
      * 页面跳转
